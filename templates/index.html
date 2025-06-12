@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram Bot</title>
+</head>
+<body>
+    <h2>Instagram Bot</h2>
+    <form method="post" action="/start">
+        <input type="text" name="your_username" placeholder="نام کاربری اینستاگرام شما" required><br>
+        <input type="password" name="your_password" placeholder="رمز عبور شما" required><br>
+        <input type="text" name="target_username" placeholder="آیدی پیج هدف" required><br>
+        {% if ask_2fa %}
+        <input type="text" name="two_factor_code" placeholder="کد تایید دو مرحله‌ای" required><br>
+        {% endif %}
+        <button type="submit">شروع</button>
+    </form>
+    <p>{{ status }}</p>
+</body>
+</html>
