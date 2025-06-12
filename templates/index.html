@@ -2,27 +2,22 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>Instagram Bot</title>
-    <style>
-        body { font-family: sans-serif; max-width: 500px; margin: auto; background: #f9f9f9; padding: 30px; }
-        input, button { display: block; width: 100%; margin-top: 10px; padding: 10px; font-size: 16px; }
-        button { background-color: #4CAF50; color: white; border: none; }
-        .status { margin-top: 20px; color: red; }
-    </style>
+    <title>ربات اینستاگرام</title>
 </head>
-<body>
-    <h2>ورود به اینستاگرام و تعامل با پیج</h2>
+<body style="font-family: sans-serif; direction: rtl; text-align: center; padding: 2rem;">
+    <h2>ورود به اینستاگرام</h2>
     <form method="post" action="/start">
-        <input type="text" name="your_username" placeholder="نام کاربری شما" required value="{{ your_username or '' }}">
-        <input type="password" name="your_password" placeholder="رمز عبور شما" required value="{{ your_password or '' }}">
-        <input type="text" name="target_username" placeholder="نام کاربری هدف" required value="{{ target_username or '' }}">
-
+        <input type="text" name="your_username" placeholder="نام کاربری شما" value="{{ your_username or '' }}"><br><br>
+        <input type="password" name="your_password" placeholder="رمز عبور شما" value="{{ your_password or '' }}"><br><br>
+        <input type="text" name="target_username" placeholder="آیدی پیج هدف" value="{{ target_username or '' }}"><br><br>
         {% if ask_2fa %}
-        <input type="text" name="two_factor_code" placeholder="کد دو مرحله‌ای (2FA)" required>
+            <input type="text" name="two_factor_code" placeholder="کد تایید دو مرحله‌ای"><br><br>
         {% endif %}
-
-        <button type="submit">شروع</button>
+        <button type="submit">شروع عملیات</button>
     </form>
-    <div class="status">{{ status }}</div>
+
+    {% if status %}
+        <p style="margin-top: 2rem; color: green;">{{ status }}</p>
+    {% endif %}
 </body>
 </html>
