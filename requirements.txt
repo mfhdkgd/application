@@ -2,3 +2,5 @@ fastapi
 uvicorn
 selenium
 jinja2
+python-multipart
+chromedriver-autoinstaller
